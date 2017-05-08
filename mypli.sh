@@ -1,20 +1,20 @@
 #!/bin/sh
-#moj LPI
-#datum kreiranja 22.04.2017
-#beleske
-#bleachbit pre pokretanja u bilokom smislu nema ini fajl u ~/.config/bleachbit
+#my LPI
+#created on 22.04.2017
+#notes
+#bleachbit font have config file before first run ~/.config/bleachbit
 version=0.0.1
 answer=0
 
-#cofiguracioni fajlovi
+#cofiguration failes
 cfgb=$(pwd)/bleachbit.ini
 cfgs=$(pwd)/smplayer.ini
 
 echo "This is version $version"
 
-# da ne funkcija
-# cita ans promenjljivu i lokalu i vraca yna 
-# u global sa 1 ili 0
+# yes-no fiunction
+# read ans variable in local and return yna variable in global 
+# yna is 1 or 0
 
 function yes_no {
 ans=
@@ -35,10 +35,10 @@ return $yna
 
 }
 
-# da ne funkcija kraj
+# yes-no fucntion end
 
 
-# funkcija update
+# function update
 
 function sys_update {
 	echo "Do you want to update your sisyem?"
@@ -48,15 +48,15 @@ function sys_update {
     fi
 }
 
-# funkcija update kraj
+# function update end
 
 
 
-# post instalaciono azuriranje sistema poceta
+# app instalation
 
 function postinstall {
     echo ""
-    echo "installin default pacage list"
+    echo "installing default pacage list"
     sudo apt-get install vim bleachbit krita smplayer smtube openshot gimp thunderbird firefox gedit gparted inkscape audacious audacity bluefish deluge doublecmd-gtk dconf-tools -y
     echo "instalation is finished!"
     echo ""
@@ -124,10 +124,10 @@ function installplus {
 
 }
 
-# post instalaciono azuriranje sistema kraj
+# app install end
 
-# konfigurisanje sistema
-# za sad samo bleach bit
+# configuring system
+# for now just bleachbit and smplayer
 
 function configure {
     echo "Bleach bit will be configured"
@@ -144,14 +144,14 @@ function configure {
 
 }
 
-# brisanje nepotrebnih paketa pocetak
-# OVA FUNKCIJA SE IZVRSAVA NAKOD PODESENOG BLEACHBITA
+# deleting cache and temp files
+# this fuction is startin anfter bleachbit is configured!!!
 
 function system_maid {
     echo "****************************************************************"
     echo ""
-    echo "After all this instalation you may have some pacages that is no"
-    echo "more required, and your temp is full, do you want to clen it up"
+    echo "After all this instalations you may have some pacages that is no"
+    echo "more required, and your temp is full, do you want to clean it up"
     echo ""
     yes_no
     if [[ $yna == 1 ]]; then
@@ -162,7 +162,7 @@ function system_maid {
     echo "Cleaning is done!"
 }
 
-#brisanje nepotrebnih paketa kraj
+#cleaning system
 
 function main {
     echo ""
@@ -196,4 +196,4 @@ function main {
 }
 
 main
-# kraj skripte
+# end of script
